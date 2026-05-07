@@ -5,52 +5,99 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <!-- Cartão de Boas-vindas -->
   <ion-card class="welcome-card">
-    <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Livros">
     <ion-card-header>
-      <ion-card-title>Bem-vindo!</ion-card-title>
+      <ion-card-title class="welcome-title">
+        Bem-vindo à "Os Meus Livros"! 📚
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <p>A aplicação <strong>"Os Meus Livros"</strong> foi criada para organizar e gerir os teus livros favoritos.</p>
-      <p>Aqui podes:</p>
-      <ul>
-        <li>✔ Ver uma lista dos teus livros favoritos</li>
-        <li>✔ Filtrar por categoria ou status (lido/por ler)</li>
-        <li>✔ Consultar detalhes de cada livro</li>
-        <li>✔ Marcar livros como lidos</li>
-        <li>✔ Ver informações sobre o autor</li>
-      </ul>
+      <p>Esta aplicação foi criada para ajudar a <strong>organizar e gerir</strong> os teus livros favoritos.</p>
     </ion-card-content>
   </ion-card>
 
+  <!-- Funcionalidades -->
   <ion-card>
     <ion-card-header>
-      <ion-card-title>🎯 Como Usar</ion-card-title>
+      <ion-card-title>
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        Funcionalidades
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <strong>Tab "Livros":</strong><br>
-      Navegue pela tua biblioteca, filtre por categoria ou marque livros como lidos.
-      <br><br>
-      <strong>Tab "Autor":</strong><br>
-      Conheça mais sobre o criador desta aplicação.
+      <ion-list>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="book-outline" color="primary"></ion-icon>
+          <ion-label>Ver lista dos teus livros favoritos</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="filter-outline" color="primary"></ion-icon>
+          <ion-label>Filtrar por categoria ou status</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="eye-outline" color="primary"></ion-icon>
+          <ion-label>Consultar detalhes de cada livro</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="checkmark-done-outline" color="primary"></ion-icon>
+          <ion-label>Marcar livros como lidos</ion-label>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-icon slot="start" name="person-circle-outline" color="primary"></ion-icon>
+          <ion-label>Conhecer o desenvolvedor</ion-label>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 
+  <!-- Estatísticas -->
   <ion-card>
     <ion-card-header>
-      <ion-card-title>📚 Total de Livros</ion-card-title>
+      <ion-card-title>
+        <ion-icon name="stats-chart-outline"></ion-icon>
+        Biblioteca
+      </ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
         <ion-row>
-          <ion-col>
+          <ion-col size="6">
             <div class="stat-box">
-              <strong>4</strong>
-              <p>Livros na Biblioteca</p>
+              <div class="stat-number">4</div>
+              <div class="stat-label">Livros</div>
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="stat-box">
+              <div class="stat-number">2</div>
+              <div class="stat-label">Lidos</div>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Navegação Rápida -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="compass-outline"></ion-icon>
+        Navega Rápido
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="quick-nav">
+        <ion-button expand="full" routerLink="/tabs/tab2">
+          <ion-icon slot="start" name="book"></ion-icon>
+          Meus Livros
+        </ion-button>
+        <ion-button expand="full" routerLink="/tabs/tab3" fill="outline">
+          <ion-icon slot="start" name="person"></ion-icon>
+          Meu Perfil
+        </ion-button>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
