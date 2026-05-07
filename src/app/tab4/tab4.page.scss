@@ -1,0 +1,213 @@
+// Estilos para a página de Favoritos (Tab4)
+
+// Animações
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Estado vazio
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  text-align: center;
+  animation: fadeInUp 0.6s ease-out;
+
+  .empty-icon {
+    font-size: 64px;
+    color: #ccc;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  h2 {
+    color: #333;
+    margin: 16px 0 8px 0;
+    font-size: 18px;
+  }
+
+  p {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+}
+
+// Cartão de Header
+.header-card {
+  margin: 16px;
+  background: linear-gradient(135deg, #f44336 0%, #e91e63 100%);
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.2);
+  border-radius: 12px;
+  animation: fadeInUp 0.5s ease-out;
+
+  ion-card-content {
+    padding: 16px !important;
+  }
+
+  .favoritos-count {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    ion-icon {
+      font-size: 24px;
+    }
+  }
+}
+
+// Grid de livros
+.livros-grid {
+  padding: 8px;
+}
+
+// Card de favorito
+.favorito-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  margin-bottom: 16px;
+  overflow: hidden;
+  animation: scaleIn 0.4s ease-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Wrapper da capa
+.capa-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+// Capa do livro
+.livro-capa {
+  width: 100% !important;
+  height: 250px !important;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .favorito-card:hover & {
+    transform: scale(1.05);
+  }
+}
+
+// Botão de remover
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  &:hover {
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+  }
+
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+// Conteúdo do card
+.card-content {
+  padding: 12px !important;
+}
+
+// Título do livro
+.livro-titulo {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Autor do livro
+.livro-autor {
+  font-size: 12px;
+  color: #666;
+  margin: 4px 0 8px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Classificação
+.classificacao {
+  display: flex;
+  gap: 2px;
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+// Responsividade
+@media (max-width: 576px) {
+  .header-card {
+    margin: 12px 8px;
+  }
+
+  .livros-grid {
+    padding: 4px;
+  }
+
+  .favorito-card {
+    margin-bottom: 12px;
+  }
+
+  .livro-capa {
+    height: 200px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .livro-capa {
+    height: 280px !important;
+  }
+}

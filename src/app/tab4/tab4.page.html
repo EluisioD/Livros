@@ -1,0 +1,59 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Meus Favoritos ❤️</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Sem Favoritos -->
+  <div *ngIf="livrosFavoritos.length === 0" class="empty-state">
+    <ion-icon name="heart-outline" class="empty-icon"></ion-icon>
+    <h2>Sem Favoritos Yet</h2>
+    <p>Adiciona livros aos teus favoritos na biblioteca!</p>
+    <ion-button routerLink="/tabs/tab2" color="primary">
+      <ion-icon slot="start" name="book"></ion-icon>
+      Ver Biblioteca
+    </ion-button>
+  </div>
+
+  <!-- Lista de Favoritos -->
+  <div *ngIf="livrosFavoritos.length > 0">
+    <!-- Cabeçalho com Contagem -->
+    <ion-card class="header-card">
+      <ion-card-content>
+        <p class="favoritos-count">
+          <ion-icon name="heart" color="danger"></ion-icon>
+          {{ livrosFavoritos.length }} {{ livrosFavoritos.length === 1 ? 'favorito' : 'favoritos' }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Grid de Livros Favoritos -->
+    <ion-grid class="livros-grid">
+      <ion-row>
+        <ion-col size="12" sizeMd="6" sizeLg="4" *ngFor="let livro of livrosFavoritos">
+          <ion-card class="favorito-card" (click)="verDetalhe(livro.id)">
+            <div class="capa-wrapper">
+              <ion-img [src]="livro.capa" class="livro-capa" alt="{{ livro.titulo }}"></ion-img>
+              <button class="remove-btn" (click)="removerFavorito(livro.id); $event.stopPropagation()">
+                <ion-icon name="close-circle" color="danger"></ion-icon>
+              </button>
+            </div>
+
+            <ion-card-content class="card-content">
+              <p class="livro-titulo">{{ livro.titulo }}</p>
+              <p class="livro-autor">{{ livro.autor }}</p>
+              <div class="classificacao">
+                <ion-text color="warning">
+                  <ion-icon *ngFor="let star of [1,2,3,4,5]" 
+                    [name]="star <= livro.classificacao ? 'star' : 'star-outline'">
+                  </ion-icon>
+                </ion-text>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

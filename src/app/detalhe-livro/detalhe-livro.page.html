@@ -3,21 +3,132 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/tab2"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ livro?.titulo }}</ion-title>
+    <ion-title>Detalhes do Livro</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFavorito()" [color]="isFavorito ? 'warning' : 'light'">
+        <ion-icon [name]="isFavorito ? 'heart' : 'heart-outline'" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div *ngIf="livro" style="text-align: center;">
-    <img [src]="livro.capa" style="max-width: 150px; margin-bottom: 15px;" />
-    <h1>{{ livro.titulo }}</h1>
-    <h3 style="color: gray; margin-top: 0;">{{ livro.autor }}</h3>
-    
-    <div style="text-align: justify; margin-top: 20px;">
-      <p><strong>Sinopse:</strong> {{ livro.sinopse }}</p>
-      <p><strong>Opinião:</strong> {{ livro.opiniao }}</p>
-      <p style="font-style: italic;">"{{ livro.citacao }}"</p>
-      <p style="text-align: center; font-size: 1.2em;"><strong>Avaliação:</strong> {{ livro.classificacao }} / 5 ⭐</p>
-    </div>
+<ion-content class="detalhe-content">
+  <div *ngIf="livro">
+    <!-- Cartão Principal com Capa -->
+    <ion-card class="capa-card">
+      <div class="capa-container">
+        <ion-img [src]="livro.capa" class="livro-capa" alt="{{ livro.titulo }}"></ion-img>
+      </div>
+      <ion-card-content class="titulo-section">
+        <ion-card-title class="livro-titulo">{{ livro.titulo }}</ion-card-title>
+        <p class="livro-autor">por {{ livro.autor }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Informações Técnicas -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="information-circle-outline"></ion-icon>
+          Informações
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label>
+              <p class="info-label">Género</p>
+              <p class="info-value">{{ livro.genero }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <p class="info-label">Categoria</p>
+              <p class="info-value">{{ livro.categoria }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <p class="info-label">Ano de Publicação</p>
+              <p class="info-value">{{ livro.ano }}</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <p class="info-label">Status de Leitura</p>
+              <ion-chip [color]="livro.lido ? 'success' : 'warning'">
+                {{ livro.lido ? '✓ Lido' : '📖 Por Ler' }}
+              </ion-chip>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Avaliação -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="star"></ion-icon>
+          Classificação
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="classificacao-section">
+        <div class="stars-display">
+          <ion-text>
+            <p *ngFor="let star of [1,2,3,4,5]" class="star">
+              <ion-icon *ngIf="star <= livro.classificacao" name="star" color="warning"></ion-icon>
+              <ion-icon *ngIf="star > livro.classificacao" name="star-outline"></ion-icon>
+            </p>
+          </ion-text>
+        </div>
+        <p class="rating-text">{{ livro.classificacao }} / 5 Estrelas</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Sinopse -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="document-text-outline"></ion-icon>
+          Sinopse
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="sinopse-text">{{ livro.sinopse }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Opinião Pessoal -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon name="chatbubble-outline"></ion-icon>
+          Opinião Pessoal
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p class="opiniao-text">{{ livro.opiniao }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Citação Marcante -->
+    <ion-card class="citacao-card">
+      <ion-card-content>
+        <p class="citacao-icon">💭</p>
+        <p class="citacao-text">{{ livro.citacao }}</p>
+        <p class="citacao-label">— Citação Marcante</p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Ações -->
+    <ion-card>
+      <ion-card-content class="acoes-section">
+        <ion-button expand="full" color="primary" (click)="toggleLido()">
+          <ion-icon slot="start" [name]="livro.lido ? 'checkmark-circle' : 'open-outline'"></ion-icon>
+          {{ livro.lido ? 'Marcar como Por Ler' : 'Marcar como Lido' }}
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>

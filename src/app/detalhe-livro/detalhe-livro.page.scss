@@ -1,0 +1,232 @@
+// Estilos para a página de detalhes do livro
+
+// Animações
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Conteúdo principal
+.detalhe-content {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 50%);
+  
+  ion-card {
+    animation: fadeInUp 0.6s ease-out;
+    margin: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Cartão da capa
+.capa-card {
+  position: relative;
+  overflow: visible !important;
+  background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+  
+  .capa-container {
+    background: white;
+    padding: 24px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .livro-capa {
+    width: 200px !important;
+    height: 280px !important;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+  }
+  
+  .titulo-section {
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    color: white;
+    padding: 20px !important;
+  }
+  
+  .livro-titulo {
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .livro-autor {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    margin: 8px 0 0 0;
+    font-style: italic;
+  }
+}
+
+// Informações
+.info-label {
+  font-size: 12px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.info-value {
+  font-size: 15px;
+  color: #333;
+  font-weight: 500;
+  margin: 4px 0 0 0;
+}
+
+ion-item {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+ion-chip {
+  margin: 8px 0;
+}
+
+// Secção de Classificação
+.classificacao-section {
+  text-align: center;
+  
+  .stars-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 16px 0;
+    
+    .star {
+      font-size: 28px;
+      margin: 0;
+      
+      ion-icon {
+        color: #ff9800;
+      }
+    }
+  }
+  
+  .rating-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a73e8;
+    margin: 0;
+  }
+}
+
+// Headers dos cards
+ion-card-header {
+  padding-bottom: 12px;
+}
+
+ion-card-title {
+  color: #1a73e8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  
+  ion-icon {
+    font-size: 20px;
+    color: #0d47a1;
+  }
+}
+
+// Textos principais
+.sinopse-text,
+.opiniao-text {
+  color: #555;
+  line-height: 1.8;
+  font-size: 14px;
+  text-align: justify;
+  margin: 0;
+}
+
+// Citação Marcante
+.citacao-card {
+  background: linear-gradient(135deg, rgba(26, 115, 232, 0.1) 0%, rgba(13, 71, 161, 0.1) 100%);
+  border-left: 5px solid #1a73e8;
+  margin: 20px 16px !important;
+  
+  ion-card-content {
+    text-align: center;
+    padding: 24px !important;
+  }
+  
+  .citacao-icon {
+    font-size: 32px;
+    margin: 0 0 12px 0;
+  }
+  
+  .citacao-text {
+    font-size: 16px;
+    font-style: italic;
+    color: #1a73e8;
+    font-weight: 500;
+    margin: 12px 0;
+    line-height: 1.6;
+  }
+  
+  .citacao-label {
+    font-size: 12px;
+    color: #0d47a1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 12px 0 0 0;
+  }
+}
+
+// Seção de Ações
+.acoes-section {
+  padding: 16px !important;
+  
+  ion-button {
+    margin: 0;
+  }
+}
+
+// Header com botão favorito
+ion-toolbar {
+  animation: slideInDown 0.5s ease-out;
+}
+
+// Responsividade
+@media (max-width: 576px) {
+  .detalhe-content {
+    ion-card {
+      margin: 12px 8px;
+    }
+  }
+  
+  .capa-card .livro-capa {
+    width: 150px !important;
+    height: 210px !important;
+  }
+  
+  .citacao-text {
+    font-size: 14px !important;
+  }
+  
+  ion-card-title {
+    font-size: 14px !important;
+  }
+}
