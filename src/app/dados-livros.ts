@@ -66,5 +66,50 @@ export const LIVROS = [
     opiniao: 'Uma história clássica de aventura e heroísmo que inspira gerações.',
     citacao: 'Ainda há bem no mundo, e merece a pena lutar por ele.',
     classificacao: 5
+  },
+  // Quinto livro: Percy Jackson - O Ladrão de Raios
+  {
+    id: 5,
+    titulo: 'Percy Jackson - O Ladrão de Raios',
+    autor: 'Rick Riordan',
+    genero: 'Fantasia Juvenil',
+    categoria: 'Infantil',
+    ano: 2005,
+    capa: 'https://images-na.ssl-images-amazon.com/images/P/0439765935.01.L.jpg',
+    lido: true,
+    sinopse: 'Um rapaz de 12 anos descobre que é filho de um deus grego e é acusado de roubar um raio...',
+    opiniao: 'Uma mistura perfeita de mitologia, humor e ação que mantém todos cativados.',
+    citacao: 'Nem todos os deuses têm nomes familiares nos livros de história.',
+    classificacao: 5
+  },
+  // Sexto livro: Dom Casmurro
+  {
+    id: 6,
+    titulo: 'Dom Casmurro',
+    autor: 'Machado de Assis',
+    genero: 'Romance',
+    categoria: 'Ficção',
+    ano: 1899,
+    capa: 'https://images-na.ssl-images-amazon.com/images/P/8532509559.01.L.jpg',
+    lido: false,
+    sinopse: 'Um homem evoca memórias da sua juventude e de um amor perdido em reminiscências poéticas...',
+    opiniao: 'Uma obra-prima da literatura portuguesa que explora temas de amor, traição e memória.',
+    citacao: 'Quero atar as duas pontas da vida, e restaurar na velhice a adolescência.',
+    classificacao: 4
+  },
+  // Sétimo livro: Harry Potter - A Pedra Filosofal
+  {
+    id: 7,
+    titulo: 'Harry Potter - A Pedra Filosofal',
+    autor: 'J.K. Rowling',
+    genero: 'Fantasia',
+    categoria: 'Infantil',
+    ano: 1997,
+    capa: 'https://images-na.ssl-images-amazon.com/images/P/043913959X.01.L.jpg',
+    lido: true,
+    sinopse: 'Um jovem rapaz descobre que é um bruxo e é convidado a frequentar a escola de magia de Hogwarts...',
+    opiniao: 'O primeiro livro de uma série extraordinária que conquistou o mundo inteiro.',
+    citacao: 'O feliz que tiver coragem de morrer com honra. Mas o terrível é viver sem ela.',
+    classificacao: 5
   }
 ];

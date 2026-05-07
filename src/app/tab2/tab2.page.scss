@@ -1,10 +1,34 @@
 // Estilos para a página de Livros
 
+// Animações
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 // Filtro Card
 .filtro-card {
   margin: 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  animation: fadeInUp 0.5s ease-out;
 }
 
 // Container de chips
@@ -33,6 +57,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   margin-bottom: 16px;
   overflow: hidden;
+  animation: scaleIn 0.4s ease-out;
 
   &:hover {
     transform: translateY(-4px);
