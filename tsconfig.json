@@ -2,6 +2,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -22,6 +23,7 @@
       "es2018",
       "dom"
     ],
+    "types": ["jasmine"],
     "skipLibCheck": true,
     "useDefineForClassFields": false
   },
