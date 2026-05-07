@@ -63,8 +63,8 @@ export class Tab2Page implements OnInit {
   /**
    * Filtra livros por status (lido/por ler)
    */
-  filtrarPorStatus(status: string) {
-    this.statusFiltro = status;
+  filtrarPorStatus(status: any) {
+    this.statusFiltro = status || 'todos';
     this.aplicarFiltros();
   }
   

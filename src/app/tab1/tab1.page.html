@@ -1,14 +1,56 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
-    <ion-title>Sobre o Autor</ion-title>
+    <ion-title>Início</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div style="text-align: center; margin-top: 20px;">
-    <img src="https://ionicframework.com/docs/img/demos/avatar.svg" style="border-radius: 50%; width: 120px;" />
-    <h2>O Seu Nome</h2>
-    <p><strong>Naturalidade:</strong> Viana do Castelo</p>
-    <p style="text-align: justify; margin-top: 20px;">Sou estudante de IHM e criei esta app para organizar as minhas leituras.</p>
-  </div>
+<ion-content [fullscreen]="true">
+  <ion-card class="welcome-card">
+    <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Livros">
+    <ion-card-header>
+      <ion-card-title>Bem-vindo!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>A aplicação <strong>"Os Meus Livros"</strong> foi criada para organizar e gerir os teus livros favoritos.</p>
+      <p>Aqui podes:</p>
+      <ul>
+        <li>✔ Ver uma lista dos teus livros favoritos</li>
+        <li>✔ Filtrar por categoria ou status (lido/por ler)</li>
+        <li>✔ Consultar detalhes de cada livro</li>
+        <li>✔ Marcar livros como lidos</li>
+        <li>✔ Ver informações sobre o autor</li>
+      </ul>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>🎯 Como Usar</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Tab "Livros":</strong><br>
+      Navegue pela tua biblioteca, filtre por categoria ou marque livros como lidos.
+      <br><br>
+      <strong>Tab "Autor":</strong><br>
+      Conheça mais sobre o criador desta aplicação.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>📚 Total de Livros</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="stat-box">
+              <strong>4</strong>
+              <p>Livros na Biblioteca</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
