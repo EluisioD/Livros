@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Sobre o Autor
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,86 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Sobre o Autor</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <!-- Cartão com a foto do autor -->
+  <ion-card class="autor-card">
+    <ion-img [src]="autor.foto" alt="Foto do Autor"></ion-img>
+    <ion-card-content>
+      <ion-card-title class="ion-text-center">{{ autor.nome }}</ion-card-title>
+      <p class="ion-text-center texto-secundario">{{ autor.idade }} anos • {{ autor.naturalidade }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Informações Pessoais -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="person-outline"></ion-icon>
+        Informações Pessoais
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <strong>Data de Nascimento:</strong><br>
+            {{ autor.dataNascimento }}
+          </ion-col>
+          <ion-col size="12" size-md="6">
+            <strong>Naturalidade:</strong><br>
+            {{ autor.naturalidade }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Sobre -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="book-outline"></ion-icon>
+        Sobre
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="biografia-text">{{ autor.biografia }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Interesses -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="heart-outline"></ion-icon>
+        Interesses
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="interesses-container">
+        <ion-chip *ngFor="let interesse of autor.interesses" color="primary">
+          {{ interesse }}
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Educação -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="school-outline"></ion-icon>
+        Educação
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Engenharia Informática</strong><br>
+      <p class="texto-secundario">Instituto Politécnico de Viana do Castelo<br>
+      Escola Superior de Tecnologia e Gestão<br>
+      1.º ano</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,0 +1,163 @@
+// Estilos para a página de Livros
+
+// Filtro Card
+.filtro-card {
+  margin: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+// Container de chips
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.filtro-chip {
+  cursor: pointer;
+}
+
+// Grid de livros
+.livros-grid {
+  padding: 8px;
+}
+
+// Card de livro
+.livro-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  margin-bottom: 16px;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Badge de status (Lido/Por Ler)
+.badge-status {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 10;
+  color: white;
+
+  &.lido {
+    background-color: #4caf50;
+  }
+
+  &.por-ler {
+    background-color: #ff9800;
+  }
+}
+
+// Capa do livro
+.livro-capa {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+// Conteúdo do card
+.card-content {
+  padding: 12px;
+}
+
+// Título do livro
+.livro-titulo {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: #333;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Autor do livro
+.livro-autor {
+  font-size: 13px;
+  color: #666;
+  margin: 4px 0;
+}
+
+// Metadata (categoria e ano)
+.livro-meta {
+  font-size: 12px;
+  color: #999;
+  margin: 8px 0;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  .ano {
+    background-color: #f0f0f0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+}
+
+// Classificação em estrelas
+.classificacao {
+  display: flex;
+  gap: 2px;
+  margin: 8px 0;
+}
+
+// Botões de ação
+.botoes-acao {
+  margin-top: 8px;
+
+  ion-button {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+// Mensagem quando não há livros
+.mensagem-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+  color: #999;
+
+  ion-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+// Responsividade para telas pequenas
+@media (max-width: 576px) {
+  .livros-grid {
+    padding: 4px;
+  }
+
+  .livro-card {
+    margin-bottom: 8px;
+  }
+
+  .livro-capa {
+    height: 200px;
+  }
+}

@@ -5,15 +5,107 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list>
-    <ion-item *ngFor="let livro of listaLivros" (click)="verDetalhe(livro.id)" button>
-      <ion-thumbnail slot="start">
-        <img [src]="livro.capa" alt="Capa" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2><strong>{{ livro.titulo }}</strong></h2>
-        <p>{{ livro.autor }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <!-- Filtro de Categorias -->
+  <ion-card class="filtro-card">
+    <ion-card-header>
+      <ion-card-title>Categorias</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="chips-container">
+        <ion-chip 
+          *ngFor="let categoria of categorias"
+          [color]="categoriaSelecionada === categoria ? 'primary' : 'light'"
+          (click)="filtrarPorCategoria(categoria)"
+          class="filtro-chip">
+          {{ categoria }}
+        </ion-chip>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Filtro de Status -->
+  <ion-card class="filtro-card">
+    <ion-card-header>
+      <ion-card-title>Status</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-segment [value]="statusFiltro" (ionChange)="filtrarPorStatus($event.detail.value)">
+        <ion-segment-button value="todos">
+          <ion-label>Todos</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="lido">
+          <ion-label>Lidos</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="por-ler">
+          <ion-label>Por Ler</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de Livros em Cartões -->
+  <ion-grid class="livros-grid">
+    <ion-row>
+      <ion-col sizeSm="12" sizeMd="6" sizeLg="4" *ngFor="let livro of livrosFiltrados">
+        <ion-card class="livro-card" (click)="verDetalhe(livro.id)">
+          <!-- Status do Livro (Lido/Por Ler) -->
+          <div class="badge-status" [class.lido]="livro.lido" [class.por-ler]="!livro.lido">
+            {{ livro.lido ? 'Lido' : 'Por Ler' }}
+          </div>
+
+          <!-- Capa do Livro -->
+          <ion-img 
+            [src]="livro.capa" 
+            alt="Capa de {{ livro.titulo }}"
+            class="livro-capa">
+          </ion-img>
+
+          <ion-card-content class="card-content">
+            <!-- Título -->
+            <ion-card-title class="livro-titulo">
+              {{ livro.titulo }}
+            </ion-card-title>
+
+            <!-- Autor -->
+            <p class="livro-autor">
+              <strong>{{ livro.autor }}</strong>
+            </p>
+
+            <!-- Categoria e Ano -->
+            <p class="livro-meta">
+              <ion-badge color="secondary">{{ livro.categoria }}</ion-badge>
+              <span class="ano">{{ livro.ano }}</span>
+            </p>
+
+            <!-- Classificação em Estrelas -->
+            <div class="classificacao">
+              <ion-icon 
+                *ngFor="let star of [1,2,3,4,5]"
+                [name]="star <= livro.classificacao ? 'star' : 'star-outline'"
+                [color]="star <= livro.classificacao ? 'warning' : 'medium'"
+                size="small">
+              </ion-icon>
+            </div>
+
+            <!-- Botão Toggle Lido -->
+            <div class="botoes-acao">
+              <ion-button 
+                fill="outline" 
+                size="small"
+                (click)="toggleLido(livro); $event.stopPropagation()">
+                <ion-icon slot="start" [name]="livro.lido ? 'checkmark-circle' : 'bookmark-outline'"></ion-icon>
+                {{ livro.lido ? 'Marcar como por ler' : 'Marcar como lido' }}
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Mensagem quando não há livros -->
+  <div *ngIf="livrosFiltrados.length === 0" class="mensagem-vazia">
+    <ion-icon name="book-outline"></ion-icon>
+    <p>Nenhum livro encontrado com os filtros selecionados</p>
+  </div>
 </ion-content>

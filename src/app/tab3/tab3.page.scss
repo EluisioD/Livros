@@ -1,0 +1,44 @@
+// Estilos para o ecrã do Autor
+
+.autor-card {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+.texto-secundario {
+  color: #666;
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.biografia-text {
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+}
+
+.interesses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+ion-card {
+  margin: 16px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+ion-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+}
+
+ion-icon {
+  color: #0066cc;
+  font-size: 20px;
+}
