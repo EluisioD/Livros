@@ -9,9 +9,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class FiltroService {
-  // BehaviorSubject para armazenar o filtro de status
-  private statusFiltroSubject = new BehaviorSubject<string>('todos');
-  public statusFiltro$ = this.statusFiltroSubject.asObservable();
+  // BehaviorSubject para armazenar o filtro de estado de leitura
+  private estadoFiltroSubject = new BehaviorSubject<string>('todos');
+  public estadoFiltro$ = this.estadoFiltroSubject.asObservable();
 
   // BehaviorSubject para armazenar o filtro de categoria
   private categoriaFiltroSubject = new BehaviorSubject<string>('Todas');
@@ -20,10 +20,10 @@ export class FiltroService {
   constructor() { }
 
   /**
-   * Define o filtro de status
+   * Define o filtro de estado de leitura
    */
-  setStatusFiltro(status: string) {
-    this.statusFiltroSubject.next(status);
+  setEstadoFiltro(estado: string) {
+    this.estadoFiltroSubject.next(estado);
   }
 
   /**
@@ -34,10 +34,10 @@ export class FiltroService {
   }
 
   /**
-   * Retorna o valor atual do filtro de status
+   * Retorna o valor atual do filtro de estado de leitura
    */
-  getStatusFiltro(): string {
-    return this.statusFiltroSubject.value;
+  getEstadoFiltro(): string {
+    return this.estadoFiltroSubject.value;
   }
 
   /**

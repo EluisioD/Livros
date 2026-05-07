@@ -22,8 +22,8 @@ export class Tab2Page implements OnInit {
   // Categoria selecionada para filtro
   public categoriaSelecionada: string = 'Todas';
   
-  // Filtro de status (lido/por ler)
-  public statusFiltro: string = 'todos'; // 'todos', 'lido', 'por-ler'
+  // Filtro de estado de leitura (lido/por ler)
+  public estadoFiltro: string = 'todos'; // 'todos', 'lido', 'por-ler'
   
   constructor(private router: Router, private filtroService: FiltroService) {}
 
@@ -32,8 +32,8 @@ export class Tab2Page implements OnInit {
     this.categorias = ['Todas', ...new Set(this.listaLivros.map(l => l.categoria))];
     
     // Subscrever ao serviço de filtro
-    this.filtroService.statusFiltro$.subscribe(status => {
-      this.statusFiltro = status;
+    this.filtroService.estadoFiltro$.subscribe(estado => {
+      this.estadoFiltro = estado;
       this.aplicarFiltros();
     });
     
@@ -48,15 +48,15 @@ export class Tab2Page implements OnInit {
       // Filtro de categoria
       const categoria = this.categoriaSelecionada === 'Todas' || livro.categoria === this.categoriaSelecionada;
       
-      // Filtro de status (lido/por ler)
-      let status = true;
-      if (this.statusFiltro === 'lido') {
-        status = livro.lido === true;
-      } else if (this.statusFiltro === 'por-ler') {
-        status = livro.lido === false;
+      // Filtro de estado de leitura (lido/por ler)
+      let estado = true;
+      if (this.estadoFiltro === 'lido') {
+        estado = livro.lido === true;
+      } else if (this.estadoFiltro === 'por-ler') {
+        estado = livro.lido === false;
       }
       
-      return categoria && status;
+      return categoria && estado;
     });
   }
   
@@ -69,10 +69,10 @@ export class Tab2Page implements OnInit {
   }
   
   /**
-   * Filtra livros por status (lido/por ler)
+   * Filtra livros por estado de leitura (lido/por ler)
    */
-  filtrarPorStatus(status: any) {
-    this.statusFiltro = status || 'todos';
+  filtrarPorEstado(estado: any) {
+    this.estadoFiltro = estado || 'todos';
     this.aplicarFiltros();
   }
   

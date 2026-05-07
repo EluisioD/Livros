@@ -32,6 +32,6 @@ export class Tab1Page implements OnInit {
    * Filtra e navega para livros lidos
    */
   filtrarLidos() {
-    this.filtroService.setStatusFiltro('lido');
+    this.filtroService.setEstadoFiltro('lido');
   }
 }
