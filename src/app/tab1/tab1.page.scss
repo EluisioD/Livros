@@ -69,6 +69,23 @@ ion-item {
   }
 }
 
+// Botão de estatísticas (clicável)
+.stat-button {
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  margin: 0 !important;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
 // Caixa de estatísticas
 .stat-box {
   text-align: center;
@@ -77,6 +94,7 @@ ion-item {
   color: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 
   .stat-number {
     font-size: 32px;

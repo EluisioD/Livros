@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LIVROS } from '../dados-livros';
+import { FiltroService } from '../services/filtro.service';
 
 @Component({
   selector: 'app-tab2',
@@ -24,11 +25,18 @@ export class Tab2Page implements OnInit {
   // Filtro de status (lido/por ler)
   public statusFiltro: string = 'todos'; // 'todos', 'lido', 'por-ler'
   
-  constructor(private router: Router) {}
+  constructor(private router: Router, private filtroService: FiltroService) {}
 
   ngOnInit() {
     // Extrair categorias únicas
     this.categorias = ['Todas', ...new Set(this.listaLivros.map(l => l.categoria))];
+    
+    // Subscrever ao serviço de filtro
+    this.filtroService.statusFiltro$.subscribe(status => {
+      this.statusFiltro = status;
+      this.aplicarFiltros();
+    });
+    
     this.aplicarFiltros();
   }
   
